@@ -67,7 +67,7 @@ public class ConectarBanco {
             
             System.out.println("Conexao criada "+con);
             
-            String sql =  "create table if not exists feira_de_curso.curso (" +
+            String sql ="create table if not exists feira_de_curso.curso (" +
                         "codCurso int unsigned not null auto_increment," +
                         "nome varchar(80),"
                     + " turno varchar(15)," +

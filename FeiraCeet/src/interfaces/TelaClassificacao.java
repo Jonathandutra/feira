@@ -16,7 +16,9 @@ public class TelaClassificacao extends javax.swing.JDialog
     public TelaClassificacao(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        temporizador = new Timer(500, AtualizarTabela);
+        this.setLocationRelativeTo(null);
+        temporizador = new Timer(20000, AtualizarTabela);
+        temporizador.start();
         
         modelo.inserirListaResultado(convidadobd.listarResultado());
         tbClassificacao.setModel(modelo);
