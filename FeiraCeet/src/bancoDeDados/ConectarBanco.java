@@ -27,7 +27,7 @@ public class ConectarBanco {
     }
      public void conectarBanco(String cami) {
         try {
-            con = DriverManager.getConnection(cami, usuario, senha);
+            con = DriverManager.getConnection("jdbc:mysql://"+cami+":3306/feira_de_curso", usuario, senha);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -43,11 +43,11 @@ public class ConectarBanco {
     }
     
     
-    public void criarBase()
+    public void criarBase(String cami)
     {
         try
         {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql", usuario, senha);
+         con = DriverManager.getConnection("jdbc:mysql://"+cami+":3306/feira_de_curso", usuario, senha);
             
             System.out.println("Conexao criada "+con);
             
@@ -66,11 +66,11 @@ public class ConectarBanco {
                 }
     }
     
-    public void criarTabelas()
+    public void criarTabelas(String cami)
     {
         try
         {
-            con = DriverManager.getConnection(caminho, usuario, senha);
+         con = DriverManager.getConnection("jdbc:mysql://"+cami+":3306/feira_de_curso", usuario, senha);
             
             System.out.println("Conexao criada "+con);
             

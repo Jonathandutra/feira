@@ -1,4 +1,3 @@
-
 package feiraCeet;
 
 import arquivo.ManipularArquivo;
@@ -6,16 +5,13 @@ import bancoDeDados.ConectarBanco;
 import interfaces.CaminhoServidor;
 import interfaces.inicial;
 
-
 /**
  *
  * @author jonathan
  */
-public class main 
-{
-     
-   
- public static void main(String args[]) {
+public class main {
+
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -40,25 +36,22 @@ public class main
         //</editor-fold>
 
         /* Create and display the form */
-      ConectarBanco conexaoBanco = new ConectarBanco();
-      ManipularArquivo arquivo = new ManipularArquivo();
-      arquivo.moverAquivo();
-      String caminho="";
-       
-       if(!arquivo.TestarArquivo("CaminhoServidor.txt"))
-       {
-           CaminhoServidor tela = new CaminhoServidor(null, true);
-           tela.setVisible(true);
-           caminho = tela.CaminhoServidor();
-           arquivo.gravarArquivo(caminho);
-           conexaoBanco.conectarBanco(caminho);
-           
-       }
-         
-         conexaoBanco.criarBase();
-         conexaoBanco.criarTabelas();
+        ConectarBanco conexaoBanco = new ConectarBanco();
+        ManipularArquivo arquivo = new ManipularArquivo();
+        arquivo.moverAquivo();
+        String caminho = "";
 
-java.awt.EventQueue.invokeLater(new Runnable() {
+        if (!arquivo.TestarArquivo("CaminhoServidor.txt")) {
+            CaminhoServidor tela = new CaminhoServidor(null, true);
+            tela.setVisible(true);
+            caminho = tela.CaminhoServidor();
+
+            arquivo.gravarArquivo(caminho);
+        }
+        conexaoBanco.criarBase(caminho);
+        conexaoBanco.criarTabelas(caminho);
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new inicial().setVisible(true);
             }
