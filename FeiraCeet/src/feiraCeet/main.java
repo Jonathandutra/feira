@@ -1,6 +1,7 @@
 
 package feiraCeet;
 
+import arquivo.ManipularArquivo;
 import bancoDeDados.ConectarBanco;
 import interfaces.inicial;
 
@@ -39,6 +40,9 @@ public class main
 
         /* Create and display the form */
       ConectarBanco conexaoBanco = new ConectarBanco();
+      ManipularArquivo arquivo = new ManipularArquivo();
+      
+      arquivo.moverAquivo();
          
          conexaoBanco.criarBase();
          conexaoBanco.criarTabelas();

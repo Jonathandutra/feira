@@ -14,7 +14,7 @@ public class ConectarBanco {
     String driver = "com.mysql.jdbc.Driver";
     String caminho = "jdbc:mysql://localhost:3306/feira_de_curso";
     String usuario = "root";
-    String senha = "j0n@th4n";
+    String senha = "root";
     Connection con;
     Statement stm;
 
@@ -85,7 +85,7 @@ public class ConectarBanco {
                         "foreign key (codCurso) references feira_de_curso.curso (codCurso),\n" +
                         "primary key (cpf)\n" +
                         ");";
-            String sql3= "load data local infile 'c:\\\\banco.txt' into table feira_de_curso.curso;";
+            String sql3= "load data local infile 'd:\\\\banco.txt' into table feira_de_curso.curso;";
             stm = con.createStatement();
             
             stm.execute(sql);
