@@ -25,6 +25,13 @@ public class ConectarBanco {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
+     public void conectarBanco(String cami) {
+        try {
+            con = DriverManager.getConnection(cami, usuario, senha);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
 
     public void desconetarBanco() {
         try {

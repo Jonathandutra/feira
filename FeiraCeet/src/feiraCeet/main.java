@@ -3,6 +3,7 @@ package feiraCeet;
 
 import arquivo.ManipularArquivo;
 import bancoDeDados.ConectarBanco;
+import interfaces.CaminhoServidor;
 import interfaces.inicial;
 
 
@@ -13,7 +14,7 @@ import interfaces.inicial;
 public class main 
 {
      
-
+   
  public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -41,8 +42,18 @@ public class main
         /* Create and display the form */
       ConectarBanco conexaoBanco = new ConectarBanco();
       ManipularArquivo arquivo = new ManipularArquivo();
-      
-        arquivo.moverAquivo();
+      arquivo.moverAquivo();
+      String caminho="";
+       
+       if(!arquivo.TestarArquivo("CaminhoServidor.txt"))
+       {
+           CaminhoServidor tela = new CaminhoServidor(null, true);
+           tela.setVisible(true);
+           caminho = tela.CaminhoServidor();
+           arquivo.gravarArquivo(caminho);
+           conexaoBanco.conectarBanco(caminho);
+           
+       }
          
          conexaoBanco.criarBase();
          conexaoBanco.criarTabelas();

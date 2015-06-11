@@ -112,4 +112,40 @@ public class ManipularArquivo {
      File arqOut = new File("d:\banco.txt");  
      arqIn.renameTo(arqOut);
     }
+    
+    public boolean TestarArquivo(String nome)
+    {
+        File arq = new File (nome);
+        if(arq.exists())
+        {
+          return true;  
+        }else
+        {
+             return false; 
+        }
+      
+    }
+
+
+        public void gravarArquivoServidor(String tex) {
+            File servidor = new File("CaminhoServidor.txt");
+        try {
+            
+            if (servidor.exists()) {
+                servidor.createNewFile();
+            }
+            
+            String conteudo = lerArquivo();
+            PrintWriter guardar = new PrintWriter(servidor);
+
+            guardar.println(tex);
+            guardar.close();
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 }
