@@ -1,7 +1,6 @@
 
 package extra;
 
-import com.sun.jmx.snmp.BerDecoder;
 import java.text.DecimalFormat;
 
 public class Cpf {

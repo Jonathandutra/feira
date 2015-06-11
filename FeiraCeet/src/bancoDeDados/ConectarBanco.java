@@ -14,7 +14,7 @@ public class ConectarBanco {
     String driver = "com.mysql.jdbc.Driver";
     String caminho = "jdbc:mysql://localhost:3306/feira_de_curso";
     String usuario = "root";
-    String senha = "root";
+    String senha = "j0n@th4n";
     Connection con;
     Statement stm;
 

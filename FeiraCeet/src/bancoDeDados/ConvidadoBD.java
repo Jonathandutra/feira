@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelos.Turma;
 import modelos.Convidado;
+import modelos.Resultado;
 
 /**
  *
@@ -67,5 +68,35 @@ public class ConvidadoBD extends ConectarBanco {
         }
 
     }
+    
+   public ArrayList<Resultado> listarResultado()
+   {
+        ArrayList<Resultado> listaConvidadosResultados = new ArrayList();
+        Resultado resultado;
 
+        try {
+            conectarBanco();
+            String sql = " select  cu.nome, count(co.cpf) cpf from  feira_de_curso.curso cu,feira_de_curso.convidado co\n" +
+" where cu.codCurso = co.codCurso group by cu.nome;";
+            stm = con.createStatement();
+            ResultSet lista = stm.executeQuery(sql);
+            while (lista.next()) {
+                resultado = new Resultado();
+                
+                resultado.setNomeCurso(lista.getString("nome"));
+                resultado.setNumeroConviado(lista.getInt("cpf"));
+                
+                listaConvidadosResultados.add(resultado);
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        } finally {
+            desconetarBanco();
+            return listaConvidadosResultados;
+        }
+
+       
+   }
 }

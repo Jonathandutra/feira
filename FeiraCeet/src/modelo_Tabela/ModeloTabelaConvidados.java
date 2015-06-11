@@ -3,15 +3,17 @@ package modelo_Tabela;
 
 import java.util.ArrayList;
 import modelos.Convidado;
+import modelos.Resultado;
 
 
 public class ModeloTabelaConvidados extends  javax.swing.table.AbstractTableModel
 {
-    ArrayList<Convidado> listaConvidado = new ArrayList(); 
+    ArrayList<Resultado> listaResultado = new ArrayList(); 
+    Resultado resultado;
 
     @Override
     public int getRowCount() {
-       return this.listaConvidado.size();
+       return this.listaResultado.size();
     }
 
     @Override
@@ -21,7 +23,35 @@ public class ModeloTabelaConvidados extends  javax.swing.table.AbstractTableMode
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            resultado = listaResultado.get(rowIndex);
+        
+        switch(columnIndex)
+        {
+            case 0: return resultado.getNomeCurso();
+            case 1: return resultado.getNumeroConviado();
+            default: return null;
+        }
+    }
+    
+   @Override
+    public String getColumnName(int columnIndex)
+    {
+        switch(columnIndex)
+        {
+            case 0: return "Turma";
+            case 1: return "Numero de Convidado";
+            default: return null;
+        }
+    }
+    
+      public void inserirListaResultado(ArrayList<Resultado> listaResultado)
+    {
+        this.listaResultado = listaResultado;
+    }
+    
+    public ArrayList<Resultado> retornarListaResultado()
+    {
+        return this.listaResultado;
     }
     
 }
