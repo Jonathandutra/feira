@@ -75,6 +75,7 @@ public class CaminhoServidor extends javax.swing.JDialog {
     private void btConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarActionPerformed
         // TODO add your handling code here:
         this.caminho = tfNumeroIPServidor.getText();
+        this.dispose();
     }//GEN-LAST:event_btConfirmarActionPerformed
 
     /**

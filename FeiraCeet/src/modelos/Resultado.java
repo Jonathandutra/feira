@@ -4,6 +4,7 @@ package modelos;
 public class Resultado
 {
     private String nomeCurso;
+    private String turno;
     private int numeroConviado;
 
     public String getNomeCurso() {
@@ -20,6 +21,14 @@ public class Resultado
 
     public void setNumeroConviado(int numeroConviado) {
         this.numeroConviado = numeroConviado;
+    }
+
+    public String getTurno() {
+        return turno;
+    }
+
+    public void setTurno(String turno) {
+        this.turno = turno;
     }
     
 }

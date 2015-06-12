@@ -18,7 +18,7 @@ public class ModeloTabelaConvidados extends  javax.swing.table.AbstractTableMode
 
     @Override
     public int getColumnCount() {
-       return 2;
+       return 3;
     }
 
     @Override
@@ -28,7 +28,8 @@ public class ModeloTabelaConvidados extends  javax.swing.table.AbstractTableMode
         switch(columnIndex)
         {
             case 0: return resultado.getNomeCurso();
-            case 1: return resultado.getNumeroConviado();
+            case 1: return resultado.getTurno();
+            case 2: return resultado.getNumeroConviado();
             default: return null;
         }
     }
@@ -39,7 +40,8 @@ public class ModeloTabelaConvidados extends  javax.swing.table.AbstractTableMode
         switch(columnIndex)
         {
             case 0: return "Turma";
-            case 1: return "Numero de Convidado";
+            case 1: return "Turno";
+            case 2: return "Numero de Convidado";
             default: return null;
         }
     }

@@ -40,16 +40,23 @@ public class main {
         ManipularArquivo arquivo = new ManipularArquivo();
         arquivo.moverAquivo();
         String caminho = "";
+        
+        
 
         if (!arquivo.TestarArquivo("CaminhoServidor.txt")) {
             CaminhoServidor tela = new CaminhoServidor(null, true);
             tela.setVisible(true);
             caminho = tela.CaminhoServidor();
+            System.out.println(caminho);
 
-            arquivo.gravarArquivo(caminho);
-        }
-        conexaoBanco.criarBase(caminho);
-        conexaoBanco.criarTabelas(caminho);
+            arquivo.gravarArquivoServidor(caminho);
+            conexaoBanco.criarBase(caminho);
+            conexaoBanco.criarTabelas(caminho);
+            }
+            conexaoBanco.criarBase();
+            conexaoBanco.criarTabelas();
+         
+       
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

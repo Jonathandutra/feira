@@ -66,6 +66,29 @@ public class ConectarBanco {
                 }
     }
     
+     public void criarBase()
+    {
+        try
+        {
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql", usuario, senha);
+            
+            System.out.println("Conexao criada "+con);
+            
+            String sql = "create database if not exists feira_de_curso;";
+            
+            stm = con.createStatement();
+            
+            stm.execute(sql);
+        }catch(Exception e)
+            {
+                System.out.println(e.getMessage());
+                e.printStackTrace();
+            }finally
+                {
+                    desconetarBanco();
+                }
+    }
+    
     public void criarTabelas(String cami)
     {
         try
@@ -85,6 +108,47 @@ public class ConectarBanco {
                         "codCurso int unsigned not null,\n" +
                         "nome varchar(80) not null,\n" +
                         "cpf varchar (15) not null,\n" +
+                        "email varchar(150),\n" +
+                        "escolaridade varchar(50),\n" +
+                        "telefone varchar(15),\n"
+                    + "celular varchar(16)," +
+                        "foreign key (codCurso) references feira_de_curso.curso (codCurso),\n" +
+                        "primary key (cpf)\n" +
+                        ");";
+            String sql3= "load data local infile 'd:\\\\banco.txt' into table feira_de_curso.curso;";
+            stm = con.createStatement();
+            
+            stm.execute(sql);
+            stm.execute(sql2);
+            stm.executeUpdate(sql3);
+        }catch(Exception e)
+            {
+                System.out.println(e.getMessage());
+                e.printStackTrace();
+            }finally
+                {
+                    desconetarBanco();
+                }
+    }
+       public void criarTabelas()
+    {
+        try
+        {
+            con = DriverManager.getConnection(caminho, usuario, senha);
+            
+            System.out.println("Conexao criada "+con);
+            
+            String sql =  "create table if not exists feira_de_curso.curso (" +
+                        "codCurso int unsigned not null auto_increment," +
+                        "nome varchar(80),"
+                    + " turno varchar(15)," +
+                        "primary key (codCurso)" +
+                        ");" ;
+                
+            String sql2 =  "create table if not exists feira_de_curso.convidado (\n" +
+                        "codCurso int unsigned not null,\n" +
+                        "nome varchar(80) not null,\n" +
+                        "cpf varchar (15) not null,\n" +
                         "email varchar(90),\n" +
                         "escolaridade varchar(20),\n" +
                         "telefone varchar(15),\n"
@@ -92,7 +156,7 @@ public class ConectarBanco {
                         "foreign key (codCurso) references feira_de_curso.curso (codCurso),\n" +
                         "primary key (cpf)\n" +
                         ");";
-            String sql3= "load data local infile 'd:\\\\banco.txt' into table feira_de_curso.curso;";
+            String sql3= "load data local infile 'c:\\\\banco.txt' into table feira_de_curso.curso;";
             stm = con.createStatement();
             
             stm.execute(sql);

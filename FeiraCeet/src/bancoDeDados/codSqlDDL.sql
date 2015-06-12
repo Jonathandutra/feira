@@ -12,7 +12,7 @@ create table if not exists feira_de_curso.convidado (
                       email varchar(90),
                       escolaridade varchar(20),
                       telefone varchar(15),
-                    celular varchar(16),
+                      celular varchar(16),
                         foreign key (codCurso) references feira_de_curso.curso (codCurso),
                         primary key (cpf)
                         );

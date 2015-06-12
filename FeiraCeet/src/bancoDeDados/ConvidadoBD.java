@@ -19,7 +19,7 @@ public class ConvidadoBD extends ConectarBanco {
     public void cadastrarConvidado(Turma turma, Convidado convidado) {
         try {
             conectarBanco();
-            String sql = "insert into convidado (codAluno,nome,cpf,email,escolaridade,telefone) values (?,?,"
+            String sql = "insert into convidado (codCurso,nome,cpf,email,escolaridade,telefone) values (?,?,"
                     + "?,?,?,?)";
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt(1, turma.getCodCurso());
@@ -76,15 +76,17 @@ public class ConvidadoBD extends ConectarBanco {
 
         try {
             conectarBanco();
-            String sql = " select  cu.nome, count(co.cpf) cpf from  feira_de_curso.curso cu,feira_de_curso.convidado co\n" +
-" where cu.codCurso = co.codCurso group by cu.nome;";
+            String sql = " select  cu.nome, cu.turno, count(co.cpf) cpf from  feira_de_curso.curso cu,feira_de_curso.convidado co\n" +
+" where cu.codCurso = co.codCurso group by cu.nome,cu.turno;";
             stm = con.createStatement();
             ResultSet lista = stm.executeQuery(sql);
             while (lista.next()) {
                 resultado = new Resultado();
                 
                 resultado.setNomeCurso(lista.getString("nome"));
+                resultado.setTurno(lista.getString("turno"));
                 resultado.setNumeroConviado(lista.getInt("cpf"));
+               
                 
                 listaConvidadosResultados.add(resultado);
 
