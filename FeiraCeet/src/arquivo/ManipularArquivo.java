@@ -23,9 +23,19 @@ public class ManipularArquivo {
 
     public void moverAquivo()
     {
-     File arqIn = new File("banco.txt");  
-     File arqOut = new File("d:\\banco.txt");  
-     arqIn.renameTo(arqOut);
+        try
+        {
+            File arqIn = new File("banco.txt");  
+            File arqOut = new File("d:\\banco.txt");  
+            if(arqIn.renameTo(arqOut))
+                   System.out.println("SUCESSO");
+            else
+                   System.err.println("FALHOU");
+        }catch(Exception e)
+        {
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
     
     public boolean TestarArquivo(String nome)

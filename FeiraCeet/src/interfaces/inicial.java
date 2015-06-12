@@ -42,9 +42,8 @@ public class inicial extends javax.swing.JFrame {
         /*
         URL url = this.getClass().getResource("logoOurus.png");
         Image iconeTitulo = Toolkit.getDefaultToolkit().getImage(url);
-        this.setIconImage(new ImageIcon("logoOurus.png"));
-        */
-        
+        this.setIconImage(new ImageIcon(("logoOurus.png"));
+      */
         
         this.getContentPane().setBackground(new Color(255, 255, 255));
 
