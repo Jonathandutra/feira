@@ -76,8 +76,8 @@ public class ConvidadoBD extends ConectarBanco {
 
         try {
             conectarBanco();
-            String sql = " select  cu.nome, cu.turno, count(co.cpf) cpf from  feira_de_curso.curso cu,feira_de_curso.convidado co\n" +
-" where cu.codCurso = co.codCurso group by cu.nome,cu.turno;";
+            String sql = "select  cu.nome nome , cu.turno turno , count(co.cpf) cpf from  feira_de_curso.curso cu,feira_de_curso.convidado co\n" +
+"where cu.codCurso = co.codCurso group by nome, turno order by cpf desc;";
             stm = con.createStatement();
             ResultSet lista = stm.executeQuery(sql);
             while (lista.next()) {
