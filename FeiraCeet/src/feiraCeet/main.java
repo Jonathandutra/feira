@@ -52,11 +52,12 @@ public class main {
             arquivo.gravarArquivoServidor(caminho);
             conexaoBanco.criarBase(caminho);
             conexaoBanco.criarTabelas(caminho);
-            }
+            }else
+        {
             conexaoBanco.criarBase();
             conexaoBanco.criarTabelas();
          
-       
+        }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

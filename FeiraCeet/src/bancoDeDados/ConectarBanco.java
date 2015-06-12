@@ -47,15 +47,19 @@ public class ConectarBanco {
     {
         try
         {
-         con = DriverManager.getConnection("jdbc:mysql://"+cami+":3306/feira_de_curso", usuario, senha);
+         con = DriverManager.getConnection("jdbc:mysql://"+cami+":3306/feira_de_curso", "admin", "admin");
             
             System.out.println("Conexao criada "+con);
             
             String sql = "create database if not exists feira_de_curso;";
+            String sql2=" CREATE USER 'aluno'@'localhost' IDENTIFIED BY 'aluno';";
+            String sql3= "GRANT ALL PRIVILEGES ON * . * TO 'aluno'@'localhost';";
             
             stm = con.createStatement();
             
             stm.execute(sql);
+            stm.execute(sql2);
+            stm.execute(sql3);
         }catch(Exception e)
             {
                 System.out.println(e.getMessage());
@@ -70,15 +74,19 @@ public class ConectarBanco {
     {
         try
         {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql", usuario, senha);
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql",  "admin", "admin");
             
             System.out.println("Conexao criada "+con);
             
             String sql = "create database if not exists feira_de_curso;";
+           String sql2=" CREATE USER 'aluno'@'localhost' IDENTIFIED BY 'aluno';";
+            String sql3= "GRANT ALL PRIVILEGES ON * . * TO 'aluno'@'localhost';";
             
             stm = con.createStatement();
             
             stm.execute(sql);
+            stm.execute(sql2);
+            stm.execute(sql3);
         }catch(Exception e)
             {
                 System.out.println(e.getMessage());
@@ -156,7 +164,7 @@ public class ConectarBanco {
                         "foreign key (codCurso) references feira_de_curso.curso (codCurso),\n" +
                         "primary key (cpf)\n" +
                         ");";
-            String sql3= "load data local infile 'c:\\\\banco.txt' into table feira_de_curso.curso;";
+            String sql3= "load data local infile 'd:\\\\banco.txt' into table feira_de_curso.curso;";
             stm = con.createStatement();
             
             stm.execute(sql);
