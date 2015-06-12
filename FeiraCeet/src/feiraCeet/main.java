@@ -42,18 +42,22 @@ public class main {
         String caminho = "";
         
         
+        
 
-        if (!arquivo.TestarArquivo("CaminhoServidor.txt")) {
-            CaminhoServidor tela = new CaminhoServidor(null, true);
-            tela.setVisible(true);
-            caminho = tela.CaminhoServidor();
-            System.out.println(caminho);
-
-            arquivo.gravarArquivoServidor(caminho);
+        if (arquivo.TestarArquivo("CaminhoServidor.txt")) 
+        {
+            caminho = arquivo.lerArquivo();
+               
             conexaoBanco.criarBase(caminho);
             conexaoBanco.criarTabelas(caminho);
             }else
         {
+            
+            CaminhoServidor tela = new CaminhoServidor(null, true);
+            tela.setVisible(true);
+            caminho = tela.CaminhoServidor();
+            arquivo.gravarArquivoServidor(caminho);
+            
             conexaoBanco.criarBase();
             conexaoBanco.criarTabelas();
          

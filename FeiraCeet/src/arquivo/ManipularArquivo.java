@@ -74,7 +74,7 @@ public class ManipularArquivo {
 
         try {
           
-            Scanner leitor = new Scanner(new FileReader(servidor)).useDelimiter("\\|");
+            Scanner leitor = new Scanner(new FileReader(servidor)).useDelimiter("\\n");
          
             while (leitor.hasNext()) {
                 texto += leitor.next();
