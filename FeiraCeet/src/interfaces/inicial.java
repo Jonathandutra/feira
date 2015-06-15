@@ -101,6 +101,11 @@ public class inicial extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         cbxAluno = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        miClassificacao = new javax.swing.JMenuItem();
+        miCadastroConvidado = new javax.swing.JMenuItem();
+        miSair = new javax.swing.JMenuItem();
 
         jLabel6.setText("jLabel6");
 
@@ -127,14 +132,14 @@ public class inicial extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btCadastrarConvidado);
-        btCadastrarConvidado.setBounds(640, 630, 160, 40);
+        btCadastrarConvidado.setBounds(640, 590, 160, 40);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("<html>Nome<font color='red'>*</font>:</html>");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(420, 320, 60, 20);
+        jLabel7.setBounds(420, 280, 60, 20);
         getContentPane().add(tfNome);
-        tfNome.setBounds(530, 320, 270, 30);
+        tfNome.setBounds(530, 280, 270, 30);
 
         try {
             tfCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -142,19 +147,19 @@ public class inicial extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         getContentPane().add(tfCPF);
-        tfCPF.setBounds(530, 350, 110, 30);
+        tfCPF.setBounds(530, 310, 110, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("<html>CPF<font color='red'>*</font>:</html>");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(420, 350, 50, 20);
+        jLabel8.setBounds(420, 310, 50, 20);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("E-Mail:");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(420, 380, 50, 20);
+        jLabel9.setBounds(420, 340, 50, 20);
         getContentPane().add(tfEmail);
-        tfEmail.setBounds(530, 380, 210, 30);
+        tfEmail.setBounds(530, 340, 210, 30);
 
         try {
             tfTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) ####-####")));
@@ -162,17 +167,17 @@ public class inicial extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         getContentPane().add(tfTelefone);
-        tfTelefone.setBounds(530, 420, 100, 30);
+        tfTelefone.setBounds(530, 380, 100, 30);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Telefone:");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(420, 420, 70, 20);
+        jLabel10.setBounds(420, 380, 70, 20);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setText("celular:");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(420, 460, 60, 20);
+        jLabel12.setBounds(420, 420, 60, 20);
 
         try {
             tfCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # ####-####")));
@@ -180,32 +185,70 @@ public class inicial extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         getContentPane().add(tfCelular);
-        tfCelular.setBounds(530, 470, 90, 30);
+        tfCelular.setBounds(530, 430, 90, 30);
 
         cbxEscolaridade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(cbxEscolaridade);
-        cbxEscolaridade.setBounds(530, 520, 270, 30);
+        cbxEscolaridade.setBounds(530, 480, 270, 30);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Escolaridade:");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(420, 520, 90, 20);
+        jLabel11.setBounds(420, 480, 90, 20);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Turma:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(420, 560, 60, 20);
+        jLabel5.setBounds(420, 520, 60, 20);
 
         cbxAluno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbxAluno.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getContentPane().add(cbxAluno);
-        cbxAluno.setBounds(530, 560, 270, 30);
+        cbxAluno.setBounds(530, 520, 270, 30);
 
         jLabel3.setFont(new java.awt.Font("Iskoola Pota", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 51, 255));
         jLabel3.setText("Convidado");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(540, 230, 210, 30);
+
+        jMenu1.setText("Janelas");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
+
+        miClassificacao.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
+        miClassificacao.setText("Classificação ");
+        miClassificacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miClassificacaoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miClassificacao);
+
+        miCadastroConvidado.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        miCadastroConvidado.setText("Cadastro de Convidado");
+        miCadastroConvidado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadastroConvidadoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miCadastroConvidado);
+
+        miSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        miSair.setText("Sair");
+        miSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miSairActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miSair);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -237,6 +280,29 @@ public class inicial extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btCadastrarConvidadoActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void miSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSairActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_miSairActionPerformed
+
+    private void miCadastroConvidadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastroConvidadoActionPerformed
+        // TODO add your handling code here:
+        CadatroConvidado telaC = new CadatroConvidado(this, true);
+        telaC.setVisible(true);
+    }//GEN-LAST:event_miCadastroConvidadoActionPerformed
+
+    private void miClassificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miClassificacaoActionPerformed
+        // TODO add your handling code here:
+        TelaClassificacao tela = new TelaClassificacao(this,true);
+        tela.setVisible(true);
+    }//GEN-LAST:event_miClassificacaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,6 +374,11 @@ public class inicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem miCadastroConvidado;
+    private javax.swing.JMenuItem miClassificacao;
+    private javax.swing.JMenuItem miSair;
     private javax.swing.JFormattedTextField tfCPF;
     private javax.swing.JFormattedTextField tfCelular;
     private javax.swing.JTextField tfEmail;

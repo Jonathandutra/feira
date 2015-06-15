@@ -45,7 +45,7 @@ public class ConvidadoBD extends ConectarBanco {
 
         try {
             conectarBanco();
-            String sql = "select * from aluno order by codAluno;";
+            String sql = "select * from feira_de_curso.convidado;";
             stm = con.createStatement();
             ResultSet lista = stm.executeQuery(sql);
             while (lista.next()) {
@@ -53,7 +53,7 @@ public class ConvidadoBD extends ConectarBanco {
                 convidado.setNome(lista.getString("nome"));
                 convidado.setCpf(lista.getString("cpf"));
                 convidado.setEmail(lista.getString("email"));
-                convidado.setEscolaridade(lista.getString("escolarida"));
+                convidado.setEscolaridade(lista.getString("escolaridade"));
                 convidado.setTelefone(lista.getString("telefone"));
                 convidado.setCelular(lista.getString("celular"));
                 listaAlunos.add(convidado);
@@ -77,7 +77,7 @@ public class ConvidadoBD extends ConectarBanco {
         try {
             conectarBanco();
             String sql = " select  cu.nome, cu.turno, count(co.cpf) cpf from  feira_de_curso.curso cu,feira_de_curso.convidado co\n" +
-" where cu.codCurso = co.codCurso group by cu.nome,cu.turno;";
+" where cu.codCurso = co.codCurso group by cu.nome,cu.turno order by cpf desc;";
             stm = con.createStatement();
             ResultSet lista = stm.executeQuery(sql);
             while (lista.next()) {

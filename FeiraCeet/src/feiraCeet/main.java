@@ -39,21 +39,22 @@ public class main {
         ConectarBanco conexaoBanco = new ConectarBanco();
         ManipularArquivo arquivo = new ManipularArquivo();
         arquivo.moverAquivo();
-        String caminho = "";
+        String caminho = arquivo.lerArquivo();
         
         
 
-        if (!arquivo.TestarArquivo("CaminhoServidor.txt")) {
+        if (arquivo.TestarArquivo("CaminhoServidor.txt")) {
+           
+            conexaoBanco.criarBase(caminho);
+            conexaoBanco.criarTabelas(caminho);
+            }else
+        {
             CaminhoServidor tela = new CaminhoServidor(null, true);
             tela.setVisible(true);
             caminho = tela.CaminhoServidor();
             System.out.println(caminho);
 
             arquivo.gravarArquivoServidor(caminho);
-            conexaoBanco.criarBase(caminho);
-            conexaoBanco.criarTabelas(caminho);
-            }else
-        {
             conexaoBanco.criarBase();
             conexaoBanco.criarTabelas();
          

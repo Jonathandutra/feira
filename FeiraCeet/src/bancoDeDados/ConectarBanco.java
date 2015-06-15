@@ -47,19 +47,21 @@ public class ConectarBanco {
     {
         try
         {
-         con = DriverManager.getConnection("jdbc:mysql://"+cami+":3306/feira_de_curso", "admin", "admin");
+         con = DriverManager.getConnection("jdbc:mysql://"+cami+":3306/feira_de_curso", "root", "root");
             
             System.out.println("Conexao criada "+con);
             
             String sql = "create database if not exists feira_de_curso;";
-            String sql2=" CREATE USER 'aluno'@'localhost' IDENTIFIED BY 'aluno';";
-            String sql3= "GRANT ALL PRIVILEGES ON * . * TO 'aluno'@'localhost';";
+            String sql2=" CREATE USER 'aluno'@'%' IDENTIFIED BY 'aluno';";
+            String sql3= "GRANT ALL PRIVILEGES ON feira_de_curso. * TO 'aluno'@'%';";
+         //   String sql4="FLUSH PRIVILEGES;";
             
             stm = con.createStatement();
             
             stm.execute(sql);
             stm.execute(sql2);
             stm.execute(sql3);
+         //   stm.execute(sql4);
         }catch(Exception e)
             {
                 System.out.println(e.getMessage());
@@ -74,19 +76,21 @@ public class ConectarBanco {
     {
         try
         {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql",  "admin", "admin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql",  "root", "root");
             
             System.out.println("Conexao criada "+con);
             
             String sql = "create database if not exists feira_de_curso;";
-           String sql2=" CREATE USER 'aluno'@'localhost' IDENTIFIED BY 'aluno';";
-            String sql3= "GRANT ALL PRIVILEGES ON * . * TO 'aluno'@'localhost';";
+            String sql2=" CREATE USER 'aluno'@'%' IDENTIFIED BY 'aluno';";
+            String sql3= "GRANT ALL PRIVILEGES ON feira_de_curso. * TO 'aluno'@'%';";
+           // String sql4="FLUSH PRIVILEGES;";
             
             stm = con.createStatement();
             
             stm.execute(sql);
             stm.execute(sql2);
             stm.execute(sql3);
+          //  stm.execute(sql4);
         }catch(Exception e)
             {
                 System.out.println(e.getMessage());

@@ -8,6 +8,8 @@ import modelos.Resultado;
 
 public class ModeloTabelaConvidados extends  javax.swing.table.AbstractTableModel
 {
+ 
+    
     ArrayList<Resultado> listaResultado = new ArrayList(); 
     Resultado resultado;
 
